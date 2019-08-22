@@ -10,26 +10,33 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Random numberGenerator = new Random();
-
             int score = 0;
 
         Start:
 
+            Random numberGenerator = new Random();
+
             int num01 = numberGenerator.Next(1, 11);
             int num02 = numberGenerator.Next(1, 11);
             string Answer;
-            
 
-        
+
             Console.WriteLine("What is " + num01 + " times " + num02 + "?");
-            int answer = Convert.ToInt32(Console.ReadLine());
+            string stringAnswer = Console.ReadLine();
+            int answer = Convert.ToInt32(stringAnswer);
 
             if (answer == num01 * num02)
             {
                 CorrectResponse();
 
-                score++;
+                if (stringAnswer.EndsWith("0") || stringAnswer.EndsWith("5"))
+                {
+                    score++;
+                }
+                else
+                {
+                    score+=2;
+                }
 
                 Console.WriteLine("Your Score now is: " + score);
             }
@@ -37,7 +44,7 @@ namespace ConsoleApp1
             {
                 IncorrectResponse();
 
-                Console.WriteLine("Your Score now is: " + score + " loser...");
+                Console.WriteLine("Your Score is now " + score + " loser...");
             }
 
             Console.Write("Would you like to try again? y/n: ");
