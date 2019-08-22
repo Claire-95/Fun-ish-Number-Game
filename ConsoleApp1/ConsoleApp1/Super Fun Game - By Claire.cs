@@ -12,22 +12,32 @@ namespace ConsoleApp1
         {
             Random numberGenerator = new Random();
 
-            int num01 = numberGenerator.Next(1, 11);
-            int num02 = numberGenerator.Next(1, 11);
-            string Answer;
+            int score = 0;
 
         Start:
 
+            int num01 = numberGenerator.Next(1, 11);
+            int num02 = numberGenerator.Next(1, 11);
+            string Answer;
+            
+
+        
             Console.WriteLine("What is " + num01 + " times " + num02 + "?");
             int answer = Convert.ToInt32(Console.ReadLine());
 
             if (answer == num01 * num02)
             {
                 CorrectResponse();
+
+                score++;
+
+                Console.WriteLine("Your Score now is: " + score);
             }
             else
             {
                 IncorrectResponse();
+
+                Console.WriteLine("Your Score now is: " + score + " loser...");
             }
 
             Console.Write("Would you like to try again? y/n: ");
@@ -45,11 +55,11 @@ namespace ConsoleApp1
             Console.ReadLine();
         }
 
-
         static void CorrectResponse()
         {
             Random numberGenerator = new Random();
             int response = numberGenerator.Next(1, 4);
+        
 
             switch (response)
             {
@@ -65,6 +75,7 @@ namespace ConsoleApp1
                     Console.WriteLine("I am in awe of your brain!!");
                     break;
             }
+
         }
 
         static void IncorrectResponse()
@@ -72,7 +83,7 @@ namespace ConsoleApp1
 
             Random numberGenerator = new Random();
             int responseIndex = numberGenerator.Next(1, 4);
-
+            
             switch (responseIndex)
             {
                 case 1:
@@ -86,8 +97,9 @@ namespace ConsoleApp1
                 default:
                     Console.WriteLine("No, that is so wrong...");
                     break;
-
             }
+
+            
         }
 
 
