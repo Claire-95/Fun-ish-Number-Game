@@ -11,9 +11,9 @@ namespace ConsoleApp1
         
         static void Main(string[] args)
         {
+            ScoreManager score = new ScoreManager();
         Start:
             Question question = new Question();
-            ScoreManager score = new ScoreManager(); 
 
             Console.WriteLine("What is " + question.num1 + " times " + question.num2 + "?");
             int answer = int.Parse(Console.ReadLine());
